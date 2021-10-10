@@ -1,3 +1,4 @@
+import org.gradle.internal.impldep.com.jcraft.jsch.ConfigRepository.defaultConfig
 
 plugins {
     id("com.android.application")
@@ -37,9 +38,9 @@ android {
         jvmTarget = "1.8"
         useIR = true
     }
-    buildFeatures {
+    /*buildFeatures {
         compose = true
-    }
+    }*/
     composeOptions {
         val compose_version = "1.0.1"
         kotlinCompilerExtensionVersion = compose_version
