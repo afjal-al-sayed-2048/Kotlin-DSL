@@ -1,21 +1,19 @@
-import org.gradle.internal.impldep.com.jcraft.jsch.ConfigRepository.defaultConfig
-
 plugins {
     id("com.android.application")
     id("kotlin-android")
 }
 
 android {
-    compileSdk = 30
+    compileSdk = AndroidApp.compileSdk
 
     defaultConfig {
-        applicationId = "com.afjalalsayedapps.workman"
-        minSdk = 21
-        targetSdk = 30
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AndroidApp.appid
+        minSdk = AndroidApp.minSdk
+        targetSdk = AndroidApp.targetSdk
+        versionCode = AndroidApp.versionCode
+        versionName = AndroidApp.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = ExtConfig.test_instrumentation_runner
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -42,9 +40,7 @@ android {
         compose = true
     }*/
     composeOptions {
-        val compose_version = "1.0.1"
-        kotlinCompilerExtensionVersion = compose_version
-        kotlinCompilerVersion = "1.5.21"
+        kotlinCompilerExtensionVersion = Versions.compose
     }
     packagingOptions {
         resources {
@@ -54,18 +50,26 @@ android {
 }
 
 dependencies {
-    val compose_version = "1.0.1"
-    implementation("androidx.core:core-ktx:1.6.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.compose.ui:ui:$compose_version")
-    implementation("androidx.compose.material:material:$compose_version")
-    implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.3.1")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
-    debugImplementation("androidx.compose.ui:ui-tooling:$compose_version")
+    //kotlin-ktx
+    implementation(Libraries.core_ktx)
+
+    //appcom
+    implementation(Libraries.appcompat)
+    implementation(Libraries.material)
+
+    //compose
+    implementation(Libraries.compose_ui)
+    implementation(Libraries.compose_material)
+    implementation(Libraries.compose_ui_preview)
+    implementation(Libraries.activity_compose)
+
+    //lifecycle
+    implementation(Libraries.lifecycle_runtime)
+
+    //testing
+    testImplementation(Libraries.juni)
+    androidTestImplementation(Libraries.ext_junit)
+    androidTestImplementation(Libraries.espresso)
+    androidTestImplementation(Libraries.compose_ui_test_junit)
+    debugImplementation(Libraries.compoose_ui_tooling)
 }

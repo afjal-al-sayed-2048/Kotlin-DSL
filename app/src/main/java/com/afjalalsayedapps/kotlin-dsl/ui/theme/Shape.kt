@@ -1,4 +1,4 @@
-package com.afjalalsayedapps.workman.ui.theme
+package com.afjalalsayedapps.`kotlin-dsl`.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

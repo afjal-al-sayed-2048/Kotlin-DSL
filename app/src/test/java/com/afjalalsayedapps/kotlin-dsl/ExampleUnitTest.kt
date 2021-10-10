@@ -1,4 +1,4 @@
-package com.afjalalsayedapps.workman
+package com.afjalalsayedapps.`kotlin-dsl`
 
 import org.junit.Test
 

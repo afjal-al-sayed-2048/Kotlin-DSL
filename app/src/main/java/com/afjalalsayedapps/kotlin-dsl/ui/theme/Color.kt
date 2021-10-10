@@ -1,4 +1,4 @@
-package com.afjalalsayedapps.workman.ui.theme
+package com.afjalalsayedapps.`kotlin-dsl`.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
